@@ -9,7 +9,6 @@
 #include <poll.h>
 #include "jetsonGPIO.h"
 
-
 //
 // gpioExport
 // Export the given gpio to userspace;

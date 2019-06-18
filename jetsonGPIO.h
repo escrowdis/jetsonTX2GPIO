@@ -47,6 +47,10 @@
 #define POLL_TIMEOUT (3 * 1000) /* 3 seconds */
 #define MAX_BUF 64
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef unsigned int jetsonGPIO ;
 typedef unsigned int pinDirection ;
 typedef unsigned int pinValue ;
@@ -64,8 +68,8 @@ enum pinValues {
 }  ;
 
 enum jetsonGPIONumber {
-  gpio57  =  57,    // J3A1 - Pin 50
-	gpio160 = 160,	  // J3A2 - Pin 40	
+       gpio57  =  57,    // J3A1 - Pin 50
+	gpio160 = 160,    // J3A2 - Pin 40
 	gpio161 = 161,    // J3A2 - Pin 43
 	gpio162 = 162,    // J3A2 - Pin 46
 	gpio163 = 163,    // J3A2 - Pin 49
@@ -97,6 +101,10 @@ enum jetsonTX2GPIONumber {
        gpio393 = 393,      // J21 - Pin 40 - GPIO21
 } ;
 
+enum jetsonTX2SPI {
+       spiss = 430,        // J21 - Pin 24
+};
+
 
 int gpioExport ( jetsonGPIO gpio ) ;
 int gpioUnexport ( jetsonGPIO gpio ) ;
@@ -109,5 +117,8 @@ int gpioClose ( int fileDescriptor ) ;
 int gpioActiveLow ( jetsonGPIO gpio, unsigned int value ) ;
 
 
+#ifdef __cplusplus
+}
+#endif
 
 #endif // JETSONGPIO_H_
